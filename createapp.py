@@ -1,4 +1,6 @@
 import os
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 name = " Mr. Joseph Ridge. "
 def mainApp():
@@ -17,20 +19,21 @@ def mainApp():
  
 def githubOperation():
     print("setting up github .. ")
-    os.system("git init")
-    os.system("git add .")
-    os.system("git commit -M 'A Step To Greatness With the First Commit'")
+    driver = webdriver.Chrome(executable_path ='/usr/bin/chromedriver')
+    driver.get("http://www.python.org")
+    # os.system("git init")
+    # os.system("git add .")
+    # os.system("git commit -M 'A Step To Greatness With the First Commit'")
     # os.system("npm init vite@latest")
-
 
 def createVue3App():
     print("\n........................................\n")
     os.chdir("/home/ridge/Documents/Web Development") 
     print(os.getcwd())
-    os.system("npm init vite@latest")
-    projectName = input("kindly input your new project name : ( the one prompted by vue ")
-    os.chdir(f"/home/ridge/Documents/Web Development/{projectName}")
-    print(os.getcwd())
+    # os.system("npm init vite@latest")
+    # projectName = input("kindly input your new project name : ( the one prompted by vue ")
+    # os.chdir(f"/home/ridge/Documents/Web Development/{projectName}")
+    # print(os.getcwd())
     githubOperation()
     print("Vue3 App created and updated to the github Repo !! ")
     print("\n........................................\n")
