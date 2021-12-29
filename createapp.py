@@ -1,4 +1,5 @@
 import os
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
@@ -52,11 +53,31 @@ def mainApp():
         print("Thank you for your time , bye! ")
         exit()
  
+
+def githubAccountVerfication(driver):
+    print("\n******************** ENTER GITHUB OTP ********************\n") 
+    githubOTPCode = driver.find_element(By.XPATH, '//*[@id="otp"]')
+    if(githubOTPCode != None):
+        gitOtp = input("Input your OTP code : ")
+        githubOTPCode.send_keys(gitOtp)    
+        githubOTPButton = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="login"]/div[3]/form/button')))
+        githubOTPButton.click() 
+        # newGithubRepositoryName = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(By.XPATH, '//*[@id="repository_name"]'))
+        # newGithubRepositoryName.send_keys(newGithubRepoName)
+        
+
+    else:
+        print("Proceeding to github repo creation ....")    
+    print("\n**********************************************************\n") 
+
+
+
 def githubOperation(newGithubRepoName, githubPAT):
     print("setting up github .. ")
     # newGithubRepoName = input("Kindly Enter your Repository Name : ")
     # newGithubRepoDescription = input("Kindly Enter your Project Description ( Brief ): ")
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    # driver.implicitly_wait(10)
     driver.get("https://github.com/login")
     myGithubEmail = driver.find_element(By.XPATH,'//*[@id="login_field"]')    
     myGithubEmail.send_keys(secrets.myEmail)
@@ -64,10 +85,23 @@ def githubOperation(newGithubRepoName, githubPAT):
     myGithubPass.send_keys(secrets.myPassword)
     myGithubButton = driver.find_element(By.XPATH,'//*[@id="login"]/div[4]/form/div/input[12]') 
     myGithubButton.click()
+    print(f"==== > URL === > {driver.current_url}")
+    if(driver.current_url == "https://github.com/sessions/verified-device"):
+        githubAccountVerfication(driver) 
+        
+        # newGithubRepositoryName = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(By.XPATH, '//*[@id="repository_name"]'))
+        # newGithubRepositoryName.send_keys(newGithubRepoName)
+    # driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    
      # new repo
+
+    driver.execute_script("window.open('about:blank', 'secondtab');")
+      # It is switching to second tab now
+    driver.switch_to.window("secondtab") 
     driver.get("https://github.com/new")
-    newGithubRepositoryName = driver.find_element(By.XPATH, '//*[@id="repository_name"]')
-    newGithubRepositoryName.send_keys(newGithubRepoName)
+    # newGithubRepoPage = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(By.XPATH,'//*[@id="repos-container"]/h2/a'))
+    # newGithubRepoPage.click()
+  
     repositoryAccessType = driver.find_element(By.XPATH,'//*[@id="repository_visibility_private"]')
     repositoryAccessType.click()
     createGithubRepo = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="new_repository"]/div[6]/button')))
@@ -150,7 +184,9 @@ def selectedItem(item):
     else:
         print("Invalid Selection .. Select valid choice of either 1,2,3 or 4...\n")
         return "0"
-        
+
+
+
 
 if (selectedItem(mainApp()) == "0"):
     selectedItem(mainApp())
