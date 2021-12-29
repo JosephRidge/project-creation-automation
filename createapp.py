@@ -1,5 +1,5 @@
-import os
-import time
+import os 
+import secrets
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
@@ -7,8 +7,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-import secrets
 
 name = " Mr. Joseph Ridge. "
 def mainApp():
@@ -75,7 +73,7 @@ def githubOperation(newGithubRepoName, githubPAT):
     os.system(f"git push -u origin main ") 
 
 def createVue3App():
-    githubPAT = "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"
+    # secrets.webGithubPAT = "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"
     print("\n........................................\n")
     os.chdir("/home/ridge/Documents/Web Development") 
     print(os.getcwd())
@@ -84,12 +82,12 @@ def createVue3App():
     projectName = input("\nkindly input your new project name : ( the one you set as your new vuew app) :  ")
     os.chdir(f"/home/ridge/Documents/Web Development/{projectName}")
     print(os.getcwd())
-    githubOperation(projectName,githubPAT)
+    githubOperation(projectName,secrets.webGithubPAT)
     print("Vue3 App created and updated to the github Repo !! ")
     print("\n........................................\n")
 
 def createFlutterApp():
-    githubPAT = "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"
+    # secrets.flutterGithubPAT = "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"
     print("\n........................................\n")
     print("Flutter here we go  ......")
     os.chdir("/home/ridge/Documents/Mobile Development") 
@@ -97,12 +95,12 @@ def createFlutterApp():
     newAppName = input("What is the name of your app ? ")    
     os.system(f"flutter create {newAppName}")
     os.chdir(f"/home/ridge/Documents/Mobile Development/{newAppName}")
-    githubOperation(newAppName,githubPAT)
+    githubOperation(newAppName,secrets.flutterGithubPAT)
     print("Kindly Launch Android Studio and open it from there thank you  ......")    
     print("\n........................................\n")
 
 def createHardwareProject():
-    githubPAT = "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"
+    # secrets.hardwareGithubPAT = "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"
     print("\n........................................\n")
     print("Lets Arduino it Baaaby !!")  
     os.chdir("/home/ridge/Documents/Hardware Development") 
@@ -110,14 +108,14 @@ def createHardwareProject():
     os.system(f"mkdir {newAppName}")
     os.system(f"cd {newAppName}")
     os.system(f"touch {newAppName}.ino")
-    githubOperation(newAppName,githubPAT)
+    githubOperation(newAppName, secrets.hardwareGithubPAT)
     print(f"Once Arduino Launches navigate to file > open > (/home/ridge/Documents/Hardware Development/{newAppName}))")
     os.system("/home/ridge/Downloads/arduino-1.8.16/arduino")  
     print(os.getcwd())
     print("\n........................................\n")
 
 def createAndroidApp():
-    githubPAT = "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"
+    # githubPAT = "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"
     print("\n........................................\n")
     print("Arctic Fox here we come  ......")
     os.chdir("/home/ridge/Documents/Mobile Development") 
@@ -125,7 +123,7 @@ def createAndroidApp():
     print("Kindly Launch Android Studio and create project from there thank you ( remember to set directory as /home/ridge/Documents/Mobile Development )  ......") 
     print(f"\n........................................ * HI {name}, KINDLY NOTE * ........................................\n")   
     print("Kindly note that You will have to launch and intialize app from Android Studio for your Native application..") 
-    print(f"\n................... * KINDLY USE THIS AS YOUR PAT : {githubPAT} as you set up Version-Control* ...................\n") 
+    print(f"\n................... * KINDLY USE THIS AS YOUR PAT : {secrets.nativeAndoridGithubPAT} as you set up Version-Control* ...................\n") 
     print("\n........................................\n")      
    
 def selectedItem(item):
@@ -141,7 +139,6 @@ def selectedItem(item):
     else:
         print("Invalid Selection .. Select valid choice of either 1,2,3 or 4...\n")
         return "0"
-
 
 
 
