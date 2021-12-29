@@ -1,11 +1,14 @@
+#  Set-Up Process
+## Prerequisites
+1. Python
+1. Selenium
+1. Code Editor e.g.  Vs Code 
 
-# Installing Selenium : 
+## Installing Selenium : 
 Depending on the version of python your have you can either install it via : for python version 2 `pip install selenium` for python version 3 `pip3 install selenium` . ([Selenium Documentation](https://selenium-python.readthedocs.io/installation.html))
 
 
-
-
-# Installing Chromium Drivers
+## Installing Chromium Drivers
 1. Check your Chrome browser version ( help > About Google Chrome ).
 ![chrome](https://user-images.githubusercontent.com/42699812/147580414-2d2a06a3-4693-45e9-9e8d-e9d2639c6891.png)
 
@@ -26,3 +29,32 @@ Depending on the version of python your have you can either install it via : for
 1. Link to your bin directory and afterwards confirm if successful by printing out the version of your chromedriver : 
 ![Screenshot at 2021-12-28 18-31-56](https://user-images.githubusercontent.com/42699812/147582016-65a67199-79a4-4063-a311-9e3946f224d2.png)
 
+
+
+
+# Build Process
+1. Create folder , cd to the folder . 
+1. Create two python files , secrets.py and appcreate.py
+1. Launch Github on browser and create repository for it. 
+1. On terminal run : touch .gitignore && echo 'secrets.py' >> .gitignore
+ this command will allow you not to push your secrets.py file to git as it will contain your credentials.
+1. Proceed with the respective git commands to push the project to github repo. 
+1. Proceed to Coding :
+
+## Coding
+1.  `secrets.py` Will contain your email address, passowrd and Personal Access Token ( i created one for each project type )
+
+2. `createapp.py` Will contain your operations : 
+ 
+- [x] User to Select which type of app to build
+- [x] create directory of particular app in respective project type directory
+- [x] Launch Github
+- [x] create new repository
+- [x] intialize project locally 
+- [x] commit and push project to github repo 
+- [x] done
+
+The implementation runs cases of VueJS | Flutter | Ardunio 
+updates will be made on the Android and Arduino sections. 
+
+Thank you and Happy automation.
