@@ -57,4 +57,4 @@ Depending on the version of python your have you can either install it via : for
 The implementation runs cases of VueJS | Flutter | Ardunio 
 updates will be made on the Android and Arduino sections. 
 
-Happy automation.
+Thank you and Happy automation.
