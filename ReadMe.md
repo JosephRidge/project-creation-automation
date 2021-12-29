@@ -53,3 +53,8 @@ Depending on the version of python your have you can either install it via : for
 - [x] intialize project locally 
 - [x] commit and push project to github repo 
 - [x] done
+
+The implementation runs cases of VueJS | Flutter | Ardunio 
+updates will be made on the Android and Arduino sections. 
+
+Happy automation.
