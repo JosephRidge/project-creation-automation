@@ -58,3 +58,21 @@ The implementation runs cases of VueJS | Flutter | Ardunio
 updates will be made on the Android and Arduino sections. 
 
 Thank you and Happy automation.
+
+# Considerations taken : 
+Instances When github request otp input  we request user to input otp on terminal and proceed with operation. 
+
+```
+def githubAccountVerfication(driver):
+    print("\n******************** ENTER GITHUB OTP ********************\n") 
+    githubOTPCode = driver.find_element(By.XPATH, '//*[@id="otp"]')
+    if(githubOTPCode != None):
+        gitOtp = input("Input your OTP code : ")
+        githubOTPCode.send_keys(gitOtp)    
+        githubOTPButton = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="login"]/div[3]/form/button')))
+        githubOTPButton.click() 
+        
+    else:
+        print("Proceeding to github repo creation ....")    
+    print("\n**********************************************************\n") 
+```
