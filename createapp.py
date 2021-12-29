@@ -52,9 +52,9 @@ def mainApp():
         print("Thank you for your time , bye! ")
         exit()
  
-def githubOperation():
+def githubOperation(newGithubRepoName, githubPAT):
     print("setting up github .. ")
-    newGithubRepoName = input("Kindly Enter your Repository Name : ")
+    # newGithubRepoName = input("Kindly Enter your Repository Name : ")
     # newGithubRepoDescription = input("Kindly Enter your Project Description ( Brief ): ")
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get("https://github.com/login")
@@ -79,40 +79,62 @@ def githubOperation():
     os.system("git commit -m 'A Step To Greatness Hence, the First Commit'")
     os.system("git branch -M main")
     os.system(f"git remote add origin {remoteRepoUrl.text}")
-    secrets.myEmail | os.system(f"git push -u origin main ") 
-    os.system(secrets.myEmail)
+    print(f"\n {githubPAT} \n")
+    os.system(f"git push -u origin main ") 
+    # os.system(secrets.myEmail)
 
 def createVue3App():
+    githubPAT = "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"
     print("\n........................................\n")
     os.chdir("/home/ridge/Documents/Web Development") 
     print(os.getcwd())
+    print("npm init vite@latest is running ........")
     os.system("npm init vite@latest")
-    projectName = input("kindly input your new project name : ( the one you set as your new vuew app ")
+    projectName = input("\nkindly input your new project name : ( the one you set as your new vuew app) :  ")
     os.chdir(f"/home/ridge/Documents/Web Development/{projectName}")
     print(os.getcwd())
-    githubOperation()
+    githubOperation(projectName,githubPAT)
     print("Vue3 App created and updated to the github Repo !! ")
     print("\n........................................\n")
 
 def createFlutterApp():
+    githubPAT = "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"
     print("\n........................................\n")
+    print("Flutter here we go  ......")
     os.chdir("/home/ridge/Documents/Mobile Development") 
     print(os.getcwd())
-    print("Flutter here we go  ......")
+    newAppName = input("What is the name of your app ? ")    
+    os.system(f"flutter create {newAppName}")
+    os.chdir(f"/home/ridge/Documents/Mobile Development/{newAppName}")
+    githubOperation(newAppName,githubPAT)
+    print("Kindly Launch Android Studio and open it from there thank you  ......")    
     print("\n........................................\n")
 
 def createHardwareProject():
+    githubPAT = "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"
     print("\n........................................\n")
-    os.chdir("/home/ridge/Documents/Hardware Development") 
-    print(os.getcwd())
     print("Lets Arduino it Baaaby !!")  
+    os.chdir("/home/ridge/Documents/Hardware Development") 
+    newAppName = input("What is the name of your Hardware Project ? ")     
+    os.system(f"mkdir {newAppName}")
+    os.system(f"cd {newAppName}")
+    os.system(f"touch {newAppName}.ino")
+    githubOperation(newAppName,githubPAT)
+    print(f"Once Arduino Launches navigate to file > open > (/home/ridge/Documents/Hardware Development/{newAppName}))")
+    os.system("/home/ridge/Downloads/arduino-1.8.16/arduino")  
+    print(os.getcwd())
     print("\n........................................\n")
 
 def createAndroidApp():
+    githubPAT = "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"
     print("\n........................................\n")
+    print("Arctic Fox here we come  ......")
     os.chdir("/home/ridge/Documents/Mobile Development") 
-    print(os.getcwd())
-    print("Arctic Fox here we come  ......")    
+    print(os.getcwd())    
+    print("Kindly Launch Android Studio and create project from there thank you ( remember to set directory as /home/ridge/Documents/Mobile Development )  ......") 
+    print(f"\n........................................ * HI {name}, KINDLY NOTE * ........................................\n")   
+    print("Kindly note that You will have to launch and intialize app from Android Studio for your Native application..") 
+    print(f"\n................... * KINDLY USE THIS AS YOUR PAT : {githubPAT} as you set up Version-Control* ...................\n") 
     print("\n........................................\n")      
    
 def selectedItem(item):
