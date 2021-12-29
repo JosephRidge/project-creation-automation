@@ -73,7 +73,6 @@ def githubOperation(newGithubRepoName, githubPAT):
     os.system(f"git push -u origin main ") 
 
 def createVue3App():
-    # secrets.webGithubPAT = "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"
     print("\n........................................\n")
     os.chdir("/home/ridge/Documents/Web Development") 
     print(os.getcwd())
@@ -86,8 +85,7 @@ def createVue3App():
     print("Vue3 App created and updated to the github Repo !! ")
     print("\n........................................\n")
 
-def createFlutterApp():
-    # secrets.flutterGithubPAT = "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"
+def createFlutterApp(): 
     print("\n........................................\n")
     print("Flutter here we go  ......")
     os.chdir("/home/ridge/Documents/Mobile Development") 
@@ -99,8 +97,7 @@ def createFlutterApp():
     print("Kindly Launch Android Studio and open it from there thank you  ......")    
     print("\n........................................\n")
 
-def createHardwareProject():
-    # secrets.hardwareGithubPAT = "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"
+def createHardwareProject(): 
     print("\n........................................\n")
     print("Lets Arduino it Baaaby !!")  
     os.chdir("/home/ridge/Documents/Hardware Development") 
@@ -114,8 +111,7 @@ def createHardwareProject():
     print(os.getcwd())
     print("\n........................................\n")
 
-def createAndroidApp():
-    # githubPAT = "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"
+def createAndroidApp(): 
     print("\n........................................\n")
     print("Arctic Fox here we come  ......")
     os.chdir("/home/ridge/Documents/Mobile Development") 
